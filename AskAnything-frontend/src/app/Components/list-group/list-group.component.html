@@ -1,4 +1,4 @@
-  
+<app-header></app-header>
 <div class="container">
     <div class="row">
       <hr />
@@ -6,7 +6,7 @@
         <h2>List of Group</h2>
         <ul>
           <li *ngFor="let group of groups">
-              <a routerLink="/view-subgroup/{{group.id}}">{{group.subredditName}}</a>
+              <a routerLink="/view-subgroup/{{group.id}}">{{group.communityName}}</a>
           </li>
         </ul>
       </div>

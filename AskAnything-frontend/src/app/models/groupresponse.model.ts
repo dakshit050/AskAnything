@@ -1,6 +1,6 @@
 export interface groupModel{
     id: Number;
-    subredditName: String;
+    communityName: String;
     description: String;
     numberOfPosts: Number;
 }

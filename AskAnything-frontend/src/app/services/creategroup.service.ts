@@ -12,12 +12,12 @@ export class CreategroupService {
   constructor(private http:HttpClient) { }
   creategroup(group:createGroup){
     console.log(group);
-     return this.http.post('http://127.0.0.1:8080/api/subreddit',group);
+     return this.http.post('http://127.0.0.1:8080/api/community',group);
   }
   getAllGroup(): Observable<Array<groupModel>>{
-    return this.http.get<Array<groupModel>>('http://127.0.0.1:8080/api/subreddit/',this.noAuthHeader);
+    return this.http.get<Array<groupModel>>('http://127.0.0.1:8080/api/community/',this.noAuthHeader);
   }
   gergroupbyid(id:Number){
-    return this.http.get(`http://127.0.0.1:8080/api/subreddit/${id}`);
+    return this.http.get(`http://127.0.0.1:8080/api/community/${id}`);
   }
 }

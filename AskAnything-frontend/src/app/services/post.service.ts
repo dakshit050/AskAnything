@@ -22,6 +22,6 @@ export class PostService {
      return this.http.get(`http://127.0.0.1:8080/api/posts/by-user/${username}`);
    }
    getAllPostBycommunity(id:Number){
-    return this.http.get(`http://127.0.0.1:8080/api/posts/by-subreddit/${id}`);
+    return this.http.get(`http://127.0.0.1:8080/api/posts/by-community/${id}`);
    }
 }

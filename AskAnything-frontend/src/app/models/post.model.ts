@@ -1,6 +1,6 @@
 export interface post{
     postName:String;
-    subredditName:String;
+    communityName:String;
     url:String;
     description :String;
 }

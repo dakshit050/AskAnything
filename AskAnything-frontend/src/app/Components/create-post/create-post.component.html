@@ -15,7 +15,7 @@
 
                                 <select class="browser-default" style="margin-top: 10px" formControlName="subGroupName">
                                     <option value="" selected disabled>Select Communitie</option>
-                                    <option *ngFor="let item of subgroups" [value]="item.subredditName">{{item.subredditName}}</option>
+                                    <option *ngFor="let item of subgroups" [value]="item.communityName">{{item.communityName}}</option>
                                   </select>
                                   <br>
                                 <editor  formControlName="description"

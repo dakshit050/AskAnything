@@ -17,7 +17,7 @@ export class CreateSubGroupComponent implements OnInit {
               private router:Router,
               private  creategroupservice:CreategroupService) { 
                 this.createGroup={
-                  subredditName:'',
+                  communityName:'',
                   description:''
                 }
               }
@@ -29,7 +29,7 @@ export class CreateSubGroupComponent implements OnInit {
     });
   }
 Create(){
-this.createGroup.subredditName=this.GroupForm.get('title').value;
+this.createGroup.communityName=this.GroupForm.get('title').value;
 this.createGroup.description=this.GroupForm.get('description').value;
 this.creategroupservice.creategroup(this.createGroup).subscribe(data=>{
 this.router.navigateByUrl('list-group');

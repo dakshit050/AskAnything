@@ -22,7 +22,7 @@ export class CreatePostComponent implements OnInit {
               private toastr:ToastrService) { 
                 this.postmodel={
                   postName:'',
-                  subredditName:'',
+                  communityName:'',
                   url:'',
                   description:''
 
@@ -51,7 +51,7 @@ export class CreatePostComponent implements OnInit {
   createPost(){
     this.postmodel.description=this.postForm.get('description').value;
     this.postmodel.url=this.postForm.get('url').value;
-    this.postmodel.subredditName=this.postForm.get('subGroupName').value;
+    this.postmodel.communityName=this.postForm.get('subGroupName').value;
     this.postmodel.postName=this.postForm.get('postName').value;
     this.postservice.savepost(this.postmodel).subscribe(data=>{
       this.toastr.success('Post Created','Successful',{

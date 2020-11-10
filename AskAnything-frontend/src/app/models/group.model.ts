@@ -1,6 +1,6 @@
 export interface createGroup{
         id?: number;
-        subredditName: string;
+        communityName: string;
         description: string;
         numberOfPosts?: number;
 }
