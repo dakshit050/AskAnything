@@ -15,5 +15,5 @@
 ![image](https://user-images.githubusercontent.com/54734141/98632256-2bd49600-2345-11eb-9fde-98ff2c9c6a7b.png)
 
 ### API-Documentation:
-![image](https://user-images.githubusercontent.com/54734141/98632341-57578080-2345-11eb-8311-3734048c684a.png)
+![image](https://user-images.githubusercontent.com/54734141/98633541-a7cfdd80-2347-11eb-9e9f-3387611bff2a.png)
 
