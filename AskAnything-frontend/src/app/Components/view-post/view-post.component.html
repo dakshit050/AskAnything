@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+      <hr />
+      <div class="col s12 m9">
+        <div class="row post">
+          <div class="col m1">
+            <app-vote-button [Post]="this.post"></app-vote-button>
+          </div>
+          <div class="col s12 m11">
+            <span>
+              <span class="subreddit-text"><a class="post-url" href="">{{post.subredditName}}</a></span>
+              <span> . Posted
+                <span> {{post.duration}} </span>
+                by              
+                <a class="username" href="">{{post.userName}}</a>
+              </span>
+            </span>
+            <hr />
+            <a routerLink="post.url" class="post-title">{{post.postName}}</a>
+            <div>
+              <p class="post-text" [innerHtml]="post.description"></p>
+            </div>
+            <div class="post-comment">
+              <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+                <div class="form-group">
+                  <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+                </div>
+                <button type="submit" class="btn blue login right">Comment</button>
+              </form>
+            </div>
+            <div style="margin-top: 60px;" *ngFor="let comment of comments">
+              <span>
+                <span class="username">
+                  <a routerLink="/user/comment.username">{{comment.userName}}</a>
+                </span>
+                <span>
+                  <p>{{comment.createdDate}}</p>
+                </span>
+                <b>{{comment.text}}</b>
+            </span>
+              <hr />
+        </div>
+          </div>
+        </div>
+      </div>
+      <div class="col m3">
+        <app-side-bar></app-side-bar>
+        <app-sub-group-side-bar></app-sub-group-side-bar>
+      </div>
+    </div>
+  </div>
+
+  

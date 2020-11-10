@@ -1,0 +1,6 @@
+.preloader-wrapper{
+    left: 34%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-40%, -50%);
+}

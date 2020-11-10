@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col m3">
+        </div>
+        <div class="col s12 m12 l6">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title"><h3>Signup</h3></span>
+                    <form [formGroup]="signupForm">
+                        <div class="row">
+                            <span class="red-text" *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                                E-mail cannot be empty
+                              </span>
+                            <div class="input-field col s12 m12">
+                              <input id="email" type="email" formControlName="email">
+                              <label for="email">E-mail</label>
+                            </div>
+                          </div>
+                        <div class="row">
+                            <span class="red-text" *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
+                                <span class="red-text" *ngIf="signupForm.get('username').errors?.required">username can not be empty.</span>
+                                <span class="red-text" *ngIf="signupForm.get('username').errors?.minlength">username must be at least 3 character.</span>
+                                <span class="red-text" *ngIf="signupForm.get('username').errors?.maxlength">username can not greater than 10 character.</span>            
+                              </span>
+                            <div class="input-field col s12 m12">
+                              <input id="username" type="text" formControlName="username">
+                              <label for="username">username</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <span class="red-text" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+                                password cannot be empty
+                              </span>
+                            <div class="input-field col s12 m12">
+                              <input id="password" type="password" formControlName="password">
+                              <label for="password">password</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <span class="red-text" *ngIf="!signupForm.get('confirmpassword').valid && signupForm.get('confirmpassword').touched">
+                                confirmpassword cannot be empty
+                              </span>
+                            <div class="input-field col s12 m12">
+                              <input id="confirmpassword" type="password" formControlName="confirmpassword">
+                              <label for="confirmpassword">confirm password</label>
+                            </div>
+                          </div>
+                          <button class="waves-effect waves-light btn" [disabled]="!signupForm.valid" (click)="signup()">Submit</button>
+                    </form>
+                  </div>
+                </div>
+        </div>
+    </div>
+</div>

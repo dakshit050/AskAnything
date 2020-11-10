@@ -1,0 +1,13 @@
+<div class="card white">
+    <div class="card-content black-text">
+        <div class="center-align" style="color: black; font-weight: bold">Browse Communities</div>
+        <hr />
+    </div>
+    <span *ngFor="let group of subgroup">
+        <div class="center-align"><a href="/community/{{group.id}}">{{group.subredditName}}</a></div>
+        <hr />
+    </span>
+    <div style="text-align: center" *ngIf="viewAll">
+        <a style="font-weight: bold" routerLink="/list-group">View All</a>
+    </div>
+  </div>

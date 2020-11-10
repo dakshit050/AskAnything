@@ -1,0 +1,31 @@
+<nav>
+    <div class="nav-wrapper white">
+        <div class="container">
+            <a [routerLink]="['/']" class="brand-logo black-text text-darken-2">AskAnything</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons grey-text">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down" *ngIf="!isLogin">
+                <li><a routerLink="/login" class="black-text text-darken-2">Login</a></li>
+                <li><a routerLink="/signup"  class="black-text text-darken-2">Signup</a></li>
+            </ul>
+            <ul id="nav-mobile" class="right hide-on-med-and-down" *ngIf="isLogin">
+                <li><a routerLink="/" class="black-text text-darken-2">Home</a></li>
+                <li><a routerLink="/createpost" class="black-text text-darken-2">Create Post</a></li>
+                <li><a routerLink="/creategroup" class="black-text text-darken-2">Create Community</a></li>
+                <li><a routerLink="/user-profile/{{this.User}}" class="black-text text-darken-2"><fa-icon [icon]="faUser"></fa-icon></a></li>
+                <li><a class="black-text text-darken-2" (click)="logout()"><fa-icon [icon]="powerOff"></fa-icon></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo" *ngIf="!isLogin">
+    <li><a routerLink="/login" >Login</a></li>
+    <li><a routerLink="/signup" >Signup</a></li>
+</ul>
+<ul class="sidenav" id="mobile-demo" *ngIf="isLogin">
+    <li><a routerLink="/" class="black-text text-darken-2">Home</a></li>
+                <li><a routerLink="/createpost" class="black-text text-darken-2">Create Post</a></li>
+                <li><a routerLink="/creategroup" class="black-text text-darken-2">Create Community</a></li>
+                <li><a routerLink="/user-profile/{{this.User}}" class="black-text text-darken-2"><fa-icon [icon]="faUser"></fa-icon></a></li>
+                <li><a class="black-text text-darken-2" (click)="logout()"><fa-icon [icon]="powerOff"></fa-icon></a></li>
+</ul>

@@ -1,0 +1,17 @@
+  
+<div class="container">
+    <div class="row">
+      <hr />
+      <div class="col m9">
+        <h2>List of Group</h2>
+        <ul>
+          <li *ngFor="let group of groups">
+              <a routerLink="/view-subgroup/{{group.id}}">{{group.subredditName}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col m3">
+        <app-side-bar></app-side-bar>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,28 @@
+<div *ngFor="let post of this.posts">
+    <div class="row">
+        <div class="col s12 m11">
+          <div class="card white">
+            <span class="subreddit-info">
+              <span class="subreddit-text"><a class="posturl" routerLink="">{{post.subredditName}}</a></span>
+              <span class="grey-text text-darken-2"> . Posted by <a class="username" routerLink="/user/{{post.userName}}">{{post.userName}}</a></span>
+              <span class="grey-text text-darken-2"> . {{post.duration}}</span>
+            </span>
+           <hr>
+           <app-vote-button [Post]="post"></app-vote-button>
+            <div class="card-content black-text" style="margin-top: -37px;">
+              <span class="card-title"><a class="postname" href="{{post.url}}"><h4>{{post.postName}}</h4></a></span>
+              <p class="post-text" style="margin-left: 25px;" [innerHtml]="post.description.slice(0,300)"></p>
+            </div>
+            <div class="card-action">
+              <a class="btnCommments">
+                <fa-icon [icon]="faComments"></fa-icon>
+                Comments({{post.commentCount}})
+              </a>
+              <button class="btn blue" (click)="goToPost(post.id)">
+                Read Post
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col m9">
+            <div class="card white">
+                <div class="card-content text-black">
+                <form [formGroup]="GroupForm" class="post-form">
+                <div class="form-group">
+                    <div class="create-subreddit-heading">Create Communities</div>
+                    <hr />
+                    <input  formControlName="title" type="text" class="form-control" style="margin-top: 5px"
+                    placeholder="Title">
+                    <textarea formControlName="description" class="materialize-textarea" type="text" style="width: 100%; margin-top: 5px"
+                    placeholder="Description"></textarea>
+                    <div>
+                    <div style="margin-top: 5px" class="float-right">
+                        <button style="margin-left: 6px;" class="btn red" (click)="Discard()">Discard</button>
+                        <button style="margin-left: 6px;" class="btn" (click)="Create()">Create</button>
+                    </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="col m3">
+        <div class="sidebar">
+          <h5 class="guidelines">Posting to AskAnything</h5>
+          <hr />
+          <ul>
+            <li>Remember the human</li>
+            <hr />
+            <li>Behave like you would in real life</li>
+            <hr />
+            <li>Don't spam</li>
+            <hr />
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
