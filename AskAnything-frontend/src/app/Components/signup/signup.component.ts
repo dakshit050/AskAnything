@@ -43,7 +43,6 @@ export class SignupComponent implements OnInit {
       this.signupRequest.password=this.signupForm.get('password').value;
       this.signupRequest.username=this.signupForm.get('username').value;
       this.signupservice.signup(this.signupRequest).subscribe(data=>{
-        console.log(data);
         this.toster.success('Account created','Success',{
           timeOut:2000,
           progressBar:true,

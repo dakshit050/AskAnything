@@ -14,9 +14,9 @@ public class authController {
     @Autowired
     private AuthService authService;
     @PostMapping("/signup")
-    public ResponseEntity<String> signup(@RequestBody RegisterRequest registerRequest){
+    public ResponseEntity<Void> signup(@RequestBody RegisterRequest registerRequest){
         authService.signup(registerRequest);
-        return ResponseEntity.status(HttpStatus.OK).body("User Registration successful");
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/accountVerificatition/{token}")

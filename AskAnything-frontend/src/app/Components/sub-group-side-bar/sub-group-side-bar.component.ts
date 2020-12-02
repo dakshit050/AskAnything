@@ -11,7 +11,6 @@ export class SubGroupSideBarComponent implements OnInit {
   subgroup:any=[];
   constructor(private groupservice:CreategroupService) { 
     this.groupservice.getAllGroup().subscribe(data=>{
-      console.log(data);
       if(data.length>4){
         this.subgroup=data.splice(0,4);
         this.viewAll=true;
