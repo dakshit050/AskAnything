@@ -21,10 +21,10 @@ public class MailService {
     public void sendMail(NotificationEmail notificationEmail){
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
-            messageHelper.setFrom("vaviyadakshit050@gmail.com");
+            messageHelper.setFrom("askanything432@gmail.com");
             messageHelper.setTo(notificationEmail.getRecipient());
             messageHelper.setSubject(notificationEmail.getSubject());
-            messageHelper.setText(mailcontentBuilder.build(notificationEmail.getBody()));
+            messageHelper.setText(mailcontentBuilder.build(notificationEmail.getBody()),true);
 
         };
         try {
