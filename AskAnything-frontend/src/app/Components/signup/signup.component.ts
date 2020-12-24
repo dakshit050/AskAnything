@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
       this.signupRequest.password=this.signupForm.get('password').value;
       this.signupRequest.username=this.signupForm.get('username').value;
       this.signupservice.signup(this.signupRequest).subscribe(data=>{
-        this.toster.success('Account created','Success',{
+        this.toster.success('Activation Email send to your Email ','Account created',{
           timeOut:2000,
           progressBar:true,
           progressAnimation:"increasing",

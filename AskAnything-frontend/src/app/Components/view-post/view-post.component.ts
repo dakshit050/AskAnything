@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CommentService } from './../../services/comment.service';
 import { throwError } from 'rxjs';
 import { PostService } from './../../services/post.service';
@@ -20,7 +21,8 @@ export class ViewPostComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,
               private activateroute:ActivatedRoute,
               private postservice:PostService,
-              private commentservice:CommentService) {
+              private commentservice:CommentService,
+              private SpinnerService:NgxSpinnerService) {
                 this.postId=this.activateroute.snapshot.params.id;
                 this.commentForm=this.formBuilder.group({
                   text: ['',Validators.required]
@@ -35,10 +37,13 @@ export class ViewPostComponent implements OnInit {
     this.getPostById();
     this.getCommentsForPost();
   }
-  private getPostById() {
+   getPostById() {
+    this.SpinnerService.show();
     this.postservice.getPost(this.postId).subscribe(data => {
       this.post = data;
+      this.SpinnerService.hide();
     }, error => {
+      this.SpinnerService.hide();
       throwError(error);
     });
   }

@@ -1,3 +1,5 @@
+import { SignupService } from './../../services/signup.service';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PostService } from './../../services/post.service';
 import { post } from './../../models/post.model';
@@ -19,7 +21,8 @@ export class CreatePostComponent implements OnInit {
   constructor(private formbuilder:FormBuilder,
               private subgroupservice:CreategroupService,
               private postservice:PostService,
-              private toastr:ToastrService) { 
+              private authService:SignupService,
+              private router:Router) { 
                 this.postmodel={
                   postName:'',
                   communityName:'',
@@ -42,6 +45,8 @@ export class CreatePostComponent implements OnInit {
      this.subgroupservice.getAllGroup().subscribe(data=>{
       this.subgroups=data;
     },error=>{
+      this.authService.DeleteToken();
+      this.router.navigateByUrl('/login');
       throwError(error);
     });
   }
@@ -54,12 +59,7 @@ export class CreatePostComponent implements OnInit {
     this.postmodel.communityName=this.postForm.get('subGroupName').value;
     this.postmodel.postName=this.postForm.get('postName').value;
     this.postservice.savepost(this.postmodel).subscribe(data=>{
-      this.toastr.success('Post Created','Successful',{
-        timeOut:2000,
-        progressBar:true,
-        progressAnimation:"increasing",
-        positionClass:'toast-top-right'
-      });
+      this.router.navigateByUrl('');
     },error=>{
       throwError(error);
     }

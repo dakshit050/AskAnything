@@ -25,6 +25,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { CommunityComponent } from './Components/community/community.component';
+import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
+import { ForgotpasswordComponent } from './Components/forgotpassword/forgotpassword.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +45,9 @@ import { CommunityComponent } from './Components/community/community.component';
     VoteButtonComponent,
     ViewPostComponent,
     UserProfileComponent,
-    CommunityComponent
+    CommunityComponent,
+    ResetpasswordComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ import { CommunityComponent } from './Components/community/community.component';
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot()
   ],
   providers: [

@@ -1,3 +1,5 @@
+import { ForgotpasswordComponent } from './Components/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
 import { CommunityComponent } from './Components/community/community.component';
 import { UserProfileComponent } from './Components/user-profile/user-profile.component';
 import { ViewPostComponent } from './Components/view-post/view-post.component';
@@ -12,6 +14,7 @@ import { CreatePostComponent } from './Components/create-post/create-post.compon
 import { AuthGuardGuard } from './Components/auth/auth-guard.guard';
 
 const routes: Routes = [
+  { path:'',component:HomeComponent,canActivate:[AuthGuardGuard]},
   { path:'login', component:LoginComponent},
   { path:'signup', component:SignupComponent},
   { path:'createpost',component:CreatePostComponent,canActivate:[AuthGuardGuard]},
@@ -20,7 +23,8 @@ const routes: Routes = [
   { path:'list-group',component:ListGroupComponent,canActivate:[AuthGuardGuard]},
   { path:'user-profile/:name',component:UserProfileComponent,canActivate:[AuthGuardGuard]},
   { path:'community/:id',component:CommunityComponent,canActivate:[AuthGuardGuard]},
-  { path:'',component:HomeComponent,canActivate:[AuthGuardGuard]}
+  { path:'resetpassword/:token',component:ResetpasswordComponent},
+  { path:'forgotpassword',component:ForgotpasswordComponent}
 ];
 
 @NgModule({

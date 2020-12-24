@@ -1,5 +1,8 @@
+import { Router } from '@angular/router';
+import { SignupService } from './../../services/signup.service';
 import { PostService } from './../../services/post.service';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  loader:boolean=true;
-  constructor(private postservice:PostService) { }
+  constructor(private postservice:PostService,
+              private SpinnerService:NgxSpinnerService,
+              private authService:SignupService,
+              private routes:Router) { }
   posts:any=[];
   ngOnInit(): void {
+    this.SpinnerService.show();
     this.postservice.getAllPost().subscribe(data=>{
       this.posts=data;
-      this.loader=false;
+      this.SpinnerService.hide();
     },error=>{
-      console.log(error);
+      this.authService.DeleteToken();
+      this.SpinnerService.hide();
+      this.routes.navigateByUrl('/login');
     }
     );
   }

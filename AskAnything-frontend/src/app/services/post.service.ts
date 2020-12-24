@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { post } from './../models/post.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -6,22 +7,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PostService {
-
+  baseUrl=environment.baseUrl;
   constructor(private http:HttpClient) { }
 
   getAllPost(){
-    return  this.http.get('http://127.0.0.1:8080/api/posts/');
+    return  this.http.get(this.baseUrl+'api/posts/');
   }
    savepost(data:post){
-     return this.http.post('http://127.0.0.1:8080/api/posts',data);
+     return this.http.post(this.baseUrl+'api/posts',data);
    }
    getPost(id:Number){
-    return this.http.get(`http://127.0.0.1:8080/api/posts/${id}`);
+    return this.http.get(this.baseUrl+`api/posts/${id}`);
    }
    getAllPostByUser(username:String){
-     return this.http.get(`http://127.0.0.1:8080/api/posts/by-user/${username}`);
+     return this.http.get(this.baseUrl+`api/posts/by-user/${username}`);
    }
    getAllPostBycommunity(id:Number){
-    return this.http.get(`http://127.0.0.1:8080/api/posts/by-community/${id}`);
+    return this.http.get(this.baseUrl+`api/posts/by-community/${id}`);
    }
 }

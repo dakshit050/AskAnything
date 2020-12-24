@@ -8,16 +8,24 @@
                 <div class="card-content">
                             <form [formGroup]="postForm">
                                 <div class="row">
+                                  <span class="red-text" *ngIf="!postForm.get('postName').valid && postForm.get('postName').touched">
+                                    Title cannot be empty
+                                  </span>
                                 <input type="text" formControlName="postName" class="form-control" style="margin-top: 5px"
                                     placeholder="Title">
                         
                                 <input type="text" class="form-control" formControlName="url" style="margin-top: 5px" placeholder="URL">
-
+                                <span class="red-text" *ngIf="!postForm.get('subGroupName').valid && postForm.get('subGroupName').touched">
+                                  please select any community
+                                </span>
                                 <select class="browser-default" style="margin-top: 10px" formControlName="subGroupName">
                                     <option value="" selected disabled>Select Communitie</option>
                                     <option *ngFor="let item of subgroups" [value]="item.communityName">{{item.communityName}}</option>
                                   </select>
                                   <br>
+                                  <span class="red-text" *ngIf="!postForm.get('description').valid && postForm.get('description').touched">
+                                    Add some description.
+                                  </span>
                                 <editor  formControlName="description"
                                 apiKey="2xy4fbkttkewzsfnqyqf2khs90xp2chtdqlbrz2j0zffvu3o"
                                   [init]="{
@@ -36,7 +44,7 @@
                                 ></editor>
                                     <div style="margin-top: 25px">
                                         <button (click)="discardPost()" class="waves-effect waves-light btn red">Discard</button>
-                                        <button class="btnCreatePost" (click)="createPost()" class="waves-effect waves-light btn">Post</button>
+                                        <button class="btnCreatePost" [disabled]="!postForm.valid"  (click)="createPost()" class="waves-effect waves-light btn">Post</button>
                                     </div>
                                 </div>
                             </form>

@@ -8,6 +8,7 @@ import lombok.NonNull;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.Instant;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -16,6 +17,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "askanything_users")
 public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY)

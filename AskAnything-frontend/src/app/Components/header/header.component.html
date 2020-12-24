@@ -18,14 +18,12 @@
     </div>
 </nav>
 
-<ul class="sidenav" id="mobile-demo" *ngIf="!isLogin">
-    <li><a routerLink="/login" >Login</a></li>
-    <li><a routerLink="/signup" >Signup</a></li>
-</ul>
-<ul class="sidenav" id="mobile-demo" *ngIf="isLogin">
-    <li><a routerLink="/" class="black-text text-darken-2">Home</a></li>
-                <li><a routerLink="/createpost" class="black-text text-darken-2">Create Post</a></li>
-                <li><a routerLink="/creategroup" class="black-text text-darken-2">Create Community</a></li>
-                <li><a routerLink="/user-profile/{{this.User}}" class="black-text text-darken-2"><fa-icon [icon]="faUser"></fa-icon></a></li>
-                <li><a class="black-text text-darken-2" (click)="logout()"><fa-icon [icon]="powerOff"></fa-icon></a></li>
+<ul class="sidenav" id="mobile-demo">
+                <li><a routerLink="/login" *ngIf="!isLogin">Login</a></li>
+                <li><a routerLink="/signup" *ngIf="!isLogin">Signup</a></li>
+                <li><a routerLink="/" class="black-text text-darken-2" *ngIf="isLogin">Home</a></li>
+                <li><a routerLink="/createpost" class="black-text text-darken-2" *ngIf="isLogin">Create Post</a></li>
+                <li><a routerLink="/creategroup" class="black-text text-darken-2" *ngIf="isLogin">Create Community</a></li>
+                <li><a routerLink="/user-profile/{{this.User}}" class="black-text text-darken-2" *ngIf="isLogin"><fa-icon [icon]="faUser"></fa-icon></a></li>
+                <li><a class="black-text text-darken-2" (click)="logout()"><fa-icon [icon]="powerOff" *ngIf="isLogin"></fa-icon></a></li>
 </ul>

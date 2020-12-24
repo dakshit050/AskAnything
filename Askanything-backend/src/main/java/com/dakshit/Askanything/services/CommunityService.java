@@ -23,6 +23,10 @@ public class CommunityService {
     @Transactional
     public CommunityDto save(CommunityDto communityDto){
         User user= authService.getCurrentUser();
+        boolean community=communityRepository.findByName(communityDto.getCommunityName()).isPresent();
+        if(community){
+            throw new SpringRedditException("Community "+ communityDto.getCommunityName() +"allready exists");
+        }
         Community subreddit= Community.builder().name(communityDto.getCommunityName())
                 .description(communityDto.getDescription())
                 .createdDate(java.time.Instant.now())
@@ -45,6 +49,7 @@ public class CommunityService {
                 .build();
     }
 
+    @Transactional
     public CommunityDto getCommunity(Long id) {
         Community community=communityRepository.findById(id)
                 .orElseThrow(()->new SpringRedditException("No Subreddit found with id "+id));

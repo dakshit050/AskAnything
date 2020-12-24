@@ -15,7 +15,7 @@
                     <div>
                     <div style="margin-top: 5px" class="float-right">
                         <button style="margin-left: 6px;" class="btn red" (click)="Discard()">Discard</button>
-                        <button style="margin-left: 6px;" class="btn" (click)="Create()">Create</button>
+                        <button style="margin-left: 6px;" [disabled]="!GroupForm.valid" class="btn" (click)="Create()">Create</button>
                     </div>
                     </div>
                 </div>

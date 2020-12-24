@@ -1,3 +1,5 @@
+import { passwordReset, email } from './../models/password.model';
+import { environment } from './../../environments/environment.prod';
 import { loginrequest } from './../models/login.model';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { signuprequest } from './../models/signup.model';
@@ -11,24 +13,29 @@ export class SignupService {
   noAuthHeader ={headers: new HttpHeaders({'NoAuth':'True'})};
   constructor(private httpclient:HttpClient,
               private router:Router) { }
-
+    baseUrl=environment.baseUrl;
   signup(Signuprequest:signuprequest){
-    console.log(Signuprequest);
-    return this.httpclient.post('http://127.0.0.1:8080/api/auth/signup',Signuprequest,this.noAuthHeader);
+    return this.httpclient.post(this.baseUrl+'api/auth/signup',Signuprequest,this.noAuthHeader);
   }
   login(loginrequest:loginrequest){
-    return this.httpclient.post('http://127.0.0.1:8080/api/auth/login',loginrequest,this.noAuthHeader);
+    return this.httpclient.post(this.baseUrl+'api/auth/login',loginrequest,this.noAuthHeader);
   }
 
+  updatepassword(passwordreset:passwordReset){
+    return this.httpclient.post(this.baseUrl+'api/auth/changePassword',passwordreset,this.noAuthHeader);
+  }
+ requestpasswordrest(Email:email){
+ return this.httpclient.post(this.baseUrl+'api/auth/resetPassword',Email,this.noAuthHeader);
+ }
   getToken(){
     return localStorage.getItem('token');
   }
   getUserName(){
-    return localStorage.getItem('userName');
+    var token=this.getToken();
+    return JSON.parse(atob(token.split('.')[1])).sub;
   }
   DeleteToken(){
       localStorage.removeItem('token');
-      localStorage.removeItem('userName');
   }
    getuserpayload(){
     var token=this.getToken();
